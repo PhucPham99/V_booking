@@ -1,0 +1,15 @@
+package com.vbooking.backend.modules.inventory.repository;
+
+import com.vbooking.backend.modules.inventory.entity.RoomTypeEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface RoomTypeRepository extends JpaRepository<RoomTypeEntity, Long> {
+
+    List<RoomTypeEntity> findByHotelIdAndIsActiveTrue(Long hotelId);
+
+    List<RoomTypeEntity> findByHotelIdAndIsActiveTrueAndIsCancelFalse(Long hotelId);
+}
